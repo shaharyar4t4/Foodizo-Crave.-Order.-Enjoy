@@ -41,7 +41,7 @@ class _OnbroadState extends State<Onbroad> {
           children: [
             // image, casual
             SizedBox(
-              height: 680,
+              height: 684,
               child: PageView.builder(
                   controller: pageController,
                   onPageChanged: (index) {
@@ -109,8 +109,8 @@ class _OnbroadState extends State<Onbroad> {
                               ),
                               child: Text(
                                 "Next",
-                                style:
-                                    TextStyle(color: Colors.white, fontSize: 18),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
                               ),
                             ),
                           ),

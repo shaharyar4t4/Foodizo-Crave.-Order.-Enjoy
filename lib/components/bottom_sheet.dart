@@ -34,7 +34,7 @@ void bottomSheet() {
               width: 100,
               height: 5,
               decoration: BoxDecoration(
-                color: Colors.grey.shade400,
+                color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
@@ -108,13 +108,10 @@ Widget buildLoginForm() {
             borderRadius: BorderRadius.circular(13),
           ),
           child: ElevatedButton(
-            onPressed: () {
+            onPressed: () async {
+              String? result = await authServices.login(
+                  emailController.text, passwordController.text);
               Get.toNamed("/NavBar");
-              // String? result =   await authServices.login(
-              //     emailController.text, passwordController.text);
-              // if(result == "success"){
-              //
-              // }
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
@@ -177,14 +174,9 @@ Widget buildRegisterForm() {
           onPressed: () async {
             String? result =
                 await authServices.register(emailsig.text, passsig.text);
-            if (result == "success") {
-              print("User are added");
-            } else {
-              CircularProgressIndicator();
-            }
           },
           style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+              padding: EdgeInsets.symmetric(horizontal: 100, vertical: 12),
               backgroundColor: sttext,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(13),
@@ -197,36 +189,6 @@ Widget buildRegisterForm() {
         SizedBox(
           height: 20,
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          child: OutlinedButton(
-            onPressed: () {},
-            child: Row(
-              children: [
-                Image.asset(
-                  'assets/images/google.png',
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  "Sigup with Google",
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                )
-              ],
-            ),
-            style: ElevatedButton.styleFrom(
-                side: BorderSide.none,
-                padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
-                backgroundColor: Colors.grey[200],
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                )),
-          ),
-        )
       ],
     ),
   );
