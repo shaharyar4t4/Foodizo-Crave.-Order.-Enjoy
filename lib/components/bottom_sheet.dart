@@ -13,7 +13,7 @@ void bottomSheet() {
   Get.bottomSheet(
     Scaffold(
       resizeToAvoidBottomInset:
-          true, // Allows UI to adjust when keyboard appears
+          false, // Allows UI to adjust when keyboard appears
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         // Fix overflow issue
@@ -77,13 +77,17 @@ Widget buildLoginForm() {
     child: Column(
       children: [
         SizedBox(height: 20),
-        TextField(
-          controller: emailController, // Fix: Assign Controller
-          decoration: InputDecoration(
-              labelText: "Email",
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: sttext))),
+        Padding(
+          padding: EdgeInsets.only(
+              bottom: MediaQuery.of(Get.context!).viewInsets.bottom),
+          child: TextField(
+            controller: emailController, // Fix: Assign Controller
+            decoration: InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: sttext))),
+          ),
         ),
         SizedBox(height: 15),
         TextField(
@@ -144,12 +148,16 @@ Widget buildRegisterForm() {
     padding: const EdgeInsets.all(8.0),
     child: Column(
       children: [
-        TextField(
-          decoration: InputDecoration(
-              labelText: "Full Name",
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.grey.shade100))),
+        Padding(
+          padding: EdgeInsets.only(
+              bottom: MediaQuery.of(Get.context!).viewInsets.bottom),
+          child: TextField(
+            decoration: InputDecoration(
+                labelText: "Full Name",
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Colors.grey.shade100))),
+          ),
         ),
         SizedBox(height: 15),
         TextField(
