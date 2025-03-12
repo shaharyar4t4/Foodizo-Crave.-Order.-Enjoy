@@ -109,11 +109,12 @@ Widget buildLoginForm() {
               String? result = await authServices.login(
                   emailController.text, passwordController.text);
               if (result == "success") {
-                Get.off("/NavBar");
+                Get.toNamed("/NavBar");
                 Get.snackbar("success", "Your are login now..",
                     backgroundColor: sttext,
-                    colorText:
-                        Colors.white); // Navigate only if login is successful
+                    colorText: Colors.white,
+                    snackPosition: SnackPosition
+                        .BOTTOM); // Navigate only if login is successful
               } else {
                 Get.snackbar("Login Failed", result ?? "Unknown error",
                     backgroundColor: Colors.red, colorText: Colors.white);
@@ -176,7 +177,9 @@ Widget buildRegisterForm() {
                 await authServices.register(emailsig.text, passsig.text);
             if (result == "success") {
               Get.snackbar("Success", "Account Created Successfully",
-                  backgroundColor: Colors.green, colorText: Colors.white);
+                  backgroundColor: Colors.green,
+                  colorText: Colors.white,
+                  snackPosition: SnackPosition.BOTTOM);
             } else {
               Get.snackbar("Sign Up Failed", result ?? "Unknown error",
                   backgroundColor: Colors.red, colorText: Colors.white);
