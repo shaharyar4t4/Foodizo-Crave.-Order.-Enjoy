@@ -11,58 +11,59 @@ AuthServices authServices = AuthServices();
 
 void bottomSheet() {
   Get.bottomSheet(
-    Container(
-      width: double.infinity,
-      height: 800,
-      // Increased height for better UI
-      padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
-      child: DefaultTabController(
-        length: 2,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Drag Handle
-            Container(
-              width: 100,
-              height: 5,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(10),
-              ),
+    Scaffold(
+      resizeToAvoidBottomInset:
+          true, // Allows UI to adjust when keyboard appears
+      backgroundColor: Colors.transparent,
+      body: SingleChildScrollView(
+        // Fix overflow issue
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
             ),
-            SizedBox(height: 15),
-            // TabBar (Login & Register)
-            TabBar(
-              labelColor: (sttext != null) ? sttext : Colors.black,
-              indicatorColor: sttext,
-              labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              tabs: [
-                Tab(text: "Create Account"),
-                Tab(
-                  text: "Login",
+          ),
+          child: DefaultTabController(
+            length: 2,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 100,
+                  height: 5,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                SizedBox(height: 15),
+                TabBar(
+                  labelColor: sttext ?? Colors.black,
+                  indicatorColor: sttext,
+                  labelStyle:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  tabs: [
+                    Tab(text: "Create Account"),
+                    Tab(text: "Login"),
+                  ],
+                ),
+                SizedBox(height: 15),
+                SizedBox(
+                  height: 400, // Adjust height to prevent overflow
+                  child: TabBarView(
+                    children: [
+                      buildRegisterForm(),
+                      buildLoginForm(),
+                    ],
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 15),
-            // TabBar Views
-            Expanded(
-              child: TabBarView(
-                children: [
-                  // Register Form
-                  buildRegisterForm(),
-                  // Login Form
-                  buildLoginForm(),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     ),
