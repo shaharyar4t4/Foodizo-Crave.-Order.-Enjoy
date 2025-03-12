@@ -76,20 +76,18 @@ Widget buildLoginForm() {
     padding: const EdgeInsets.all(8),
     child: Column(
       children: [
-        SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 20),
         TextField(
+          controller: emailController, // Fix: Assign Controller
           decoration: InputDecoration(
               labelText: "Email",
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(color: sttext))),
         ),
-        SizedBox(
-          height: 15,
-        ),
+        SizedBox(height: 15),
         TextField(
+          controller: passwordController, // Fix: Assign Controller
           decoration: InputDecoration(
               labelText: "Password",
               border: OutlineInputBorder(
@@ -111,7 +109,16 @@ Widget buildLoginForm() {
             onPressed: () async {
               String? result = await authServices.login(
                   emailController.text, passwordController.text);
-              Get.toNamed("/NavBar");
+              if (result == "success") {
+                Get.off("/NavBar");
+                Get.snackbar("success", "Your are login now..",
+                    backgroundColor: sttext,
+                    colorText:
+                        Colors.white); // Navigate only if login is successful
+              } else {
+                Get.snackbar("Login Failed", result ?? "Unknown error",
+                    backgroundColor: Colors.red, colorText: Colors.white);
+              }
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
@@ -124,9 +131,7 @@ Widget buildLoginForm() {
             ),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 20),
       ],
     ),
   );
@@ -145,22 +150,18 @@ Widget buildRegisterForm() {
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(color: Colors.grey.shade100))),
         ),
-        SizedBox(
-          height: 15,
-        ),
+        SizedBox(height: 15),
         TextField(
-          controller: emailsig,
+          controller: emailsig, // Fix: Assign Controller
           decoration: InputDecoration(
               labelText: "Email address",
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(color: Colors.grey.shade100))),
         ),
-        SizedBox(
-          height: 15,
-        ),
+        SizedBox(height: 15),
         TextField(
-          controller: passsig,
+          controller: passsig, // Fix: Assign Controller
           decoration: InputDecoration(
             labelText: "Password",
             border: OutlineInputBorder(
@@ -174,6 +175,13 @@ Widget buildRegisterForm() {
           onPressed: () async {
             String? result =
                 await authServices.register(emailsig.text, passsig.text);
+            if (result == "success") {
+              Get.snackbar("Success", "Account Created Successfully",
+                  backgroundColor: Colors.green, colorText: Colors.white);
+            } else {
+              Get.snackbar("Sign Up Failed", result ?? "Unknown error",
+                  backgroundColor: Colors.red, colorText: Colors.white);
+            }
           },
           style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 100, vertical: 12),
@@ -186,9 +194,7 @@ Widget buildRegisterForm() {
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        SizedBox(height: 20),
       ],
     ),
   );
