@@ -44,12 +44,16 @@ void bottomSheet() {
                 TabBar(
                   labelColor: sttext ?? Colors.black,
                   indicatorColor: sttext,
+                  dividerColor: Colors.transparent,
                   labelStyle:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   tabs: [
                     Tab(text: "Create Account"),
                     Tab(text: "Login"),
                   ],
+                  indicator: UnderlineTabIndicator(
+                    borderSide: BorderSide(color: sttext, width: 2.0),
+                  ),
                 ),
                 SizedBox(height: 15),
                 SizedBox(
@@ -83,20 +87,19 @@ Widget buildLoginForm() {
           child: TextField(
             controller: emailController, // Fix: Assign Controller
             decoration: InputDecoration(
-                labelText: "Email",
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: sttext))),
+              borderRadius: BorderRadius.circular(10),
+            )),
           ),
         ),
         SizedBox(height: 15),
         TextField(
-          controller: passwordController, // Fix: Assign Controller
+          controller: passwordController,
+          // Fix: Assign Controller
           decoration: InputDecoration(
-              labelText: "Password",
               border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: sttext))),
+            borderRadius: BorderRadius.circular(10),
+          )),
           obscureText: true,
         ),
         SizedBox(height: 15),
