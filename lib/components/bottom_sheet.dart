@@ -80,27 +80,49 @@ Widget buildLoginForm() {
     padding: const EdgeInsets.all(8),
     child: Column(
       children: [
-        SizedBox(height: 20),
         Padding(
           padding: EdgeInsets.only(
               bottom: MediaQuery.of(Get.context!).viewInsets.bottom),
           child: TextField(
             controller: emailController, // Fix: Assign Controller
             decoration: InputDecoration(
-                border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            )),
+              hintText: "Email Address",
+              hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+              fillColor: Colors.grey[50],
+              filled: true,
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: sttext, // Border color when focused
+                  width: 2.0,
+                ),
+              ),
+            ),
           ),
         ),
         SizedBox(height: 15),
         TextField(
           controller: passwordController,
-          // Fix: Assign Controller
-          decoration: InputDecoration(
-              border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          )),
           obscureText: true,
+          decoration: InputDecoration(
+            hintText: "***** *****",
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+            fillColor: Colors.grey[50],
+            filled: true,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: sttext, // Border color when focused
+                width: 2.0,
+              ),
+            ),
+          ),
         ),
         SizedBox(height: 15),
         Container(
@@ -139,7 +161,36 @@ Widget buildLoginForm() {
             ),
           ),
         ),
-        SizedBox(height: 20),
+        Divider(
+          color: Colors.grey,
+          height: 40,
+          thickness: 0.2,
+          indent: 5,
+          endIndent: 5,
+        ),
+        Container(
+          width: 250,
+          height: 45,
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(13),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/google.png",
+                width: 30,
+                height: 30,
+              ),
+              SizedBox(width: 10),
+              Text(
+                " Login with Google",
+                style: TextStyle(color: Colors.black, fontSize: 16),
+              ),
+            ],
+          ),
+        )
       ],
     ),
   );
