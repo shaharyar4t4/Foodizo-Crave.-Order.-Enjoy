@@ -24,7 +24,9 @@ class _ViewDashboredState extends State<ViewDashbored> {
                 padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  image: DecorationImage(image: Image.asset("assets/images/pattern.png").image, fit: BoxFit.cover) ,
+                  image: DecorationImage(
+                      image: Image.asset("assets/images/pattern.png").image,
+                      fit: BoxFit.cover),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,74 +66,93 @@ class _ViewDashboredState extends State<ViewDashbored> {
                 ),
               ),
               // Special Offer Banner
-              // Container(
-              //   margin: EdgeInsets.all(8.0),
-              //   padding: EdgeInsets.only(
-              //     left: 10,
-              //   ),
-              //   decoration: BoxDecoration(
-              //     color: Colors.red[400],
-              //     borderRadius: BorderRadius.circular(12.0),
-              //     boxShadow: [
-              //       BoxShadow(
-              //         color: Colors.white,
-              //         spreadRadius: 2,
-              //         blurRadius: 5,
-              //         offset: Offset(0, 2),
-              //       ),
-              //     ],
-              //   ),
-              //   child: Row(
-              //     children: [
-              //       Expanded(
-              //         child: Column(
-              //           crossAxisAlignment: CrossAxisAlignment.start,
-              //           children: [
-              //             Padding(
-              //               padding: const EdgeInsets.only(left: 10, top: 10),
-              //               child: Text(
-              //                 'Special Offer for March',
-              //                 style: TextStyle(
-              //                   fontSize: 15,
-              //                   fontWeight: FontWeight.bold,
-              //                   color: Colors.white,
-              //                 ),
-              //               ),
-              //             ),
-              //             Padding(
-              //               padding: const EdgeInsets.only(top: 10, left: 10),
-              //               child: Text(
-              //                 'We are here with the best desserts in town.',
-              //                 style:
-              //                     TextStyle(fontSize: 14, color: Colors.white),
-              //               ),
-              //             ),
-              //             OutlinedButton(
-              //               onPressed: () {},
-              //               child: Text("Shop Now"),
-              //               style: ElevatedButton.styleFrom(
-              //                   backgroundColor: Colors.white),
-              //             )
-              //           ],
-              //         ),
-              //       ),
-              //       Container(
-              //         decoration: BoxDecoration(
-              //           borderRadius: BorderRadius.only(
-              //             bottomRight: Radius.circular(12.0),
-              //             bottomLeft: Radius.circular(12.0),
-              //           ),
-              //         ),
-              //         child: Image.asset(
-              //           'assets/images/bgbanner.png',
-              //           height: 170,
-              //           // Replace with your burger image asset path
-              //           fit: BoxFit.cover,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                width: 340,
+                height: 160,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [sttext, sbtn1],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(12.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 35, left: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Special Offer",
+                            style: TextStyle(
+                                fontFamily: "popinbold",
+                                color: Colors.white,
+                                fontSize: 15),
+                          ),
+                          Text(
+                            "for March",
+                            style: TextStyle(
+                                fontFamily: "popinbold",
+                                color: Colors.white,
+                                fontSize: 15),
+                          ),
+                          Text(
+                            "We are here with the",
+                            style: TextStyle(color: Colors.white, fontSize: 9),
+                          ),
+                          Text(
+                            "best deserts in town.",
+                            style: TextStyle(color: Colors.white, fontSize: 9),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            width: 80,
+                            height: 25,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(9.0),
+                            ),
+                            child: Center(
+                                child: Text(
+                              "Buy Now",
+                              style: TextStyle(
+                                  color: sbtn,
+                                  fontSize: 10,
+                                  fontFamily: "popinbold"),
+                            )),
+                          )
+                        ],
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      // Apply border radius
+                      child: Image.asset(
+                        'assets/images/bgbanner.png',
+                        height: 200,
+                        fit: BoxFit
+                            .cover, // Ensures the image covers the area properly
+                      ),
+                    )
+                  ],
+                ),
+              ),
               // Food Categories (Horizontal Scroll)
               // Container(
               //   padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -253,7 +274,8 @@ class _ViewDashboredState extends State<ViewDashbored> {
               //     ],
               //   ),
               // ),
-              SizedBox(height: 16), // Add some space at the bottom
+              SizedBox(height: 16),
+              // Add some space at the bottom
             ],
           ),
         ),

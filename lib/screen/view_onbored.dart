@@ -59,7 +59,7 @@ class _OnbroadState extends State<Onbroad> {
                         children: [
                           Image.asset(
                             image[index],
-                            height: 350,
+                            height: 340,
                             width: double.infinity, // Adjust height
                           ),
                           const SizedBox(height: 60),
