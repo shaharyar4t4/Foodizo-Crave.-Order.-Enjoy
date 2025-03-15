@@ -230,19 +230,40 @@ Widget buildRegisterForm() {
         TextField(
           controller: emailsig, // Fix: Assign Controller
           decoration: InputDecoration(
-              labelText: "Email address",
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(color: Colors.grey.shade100))),
+            hintText: "Email Address",
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+            fillColor: Colors.grey[50],
+            filled: true,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: sttext, // Border color when focused
+                width: 2.0,
+              ),
+            ),
+          ),
         ),
         SizedBox(height: 15),
         TextField(
           controller: passsig, // Fix: Assign Controller
           decoration: InputDecoration(
-            labelText: "Password",
+            hintText: "***** *****",
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+            fillColor: Colors.grey[50],
+            filled: true,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.grey.shade100)),
+                borderSide: BorderSide.none),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: sttext, // Border color when focused
+                width: 2.0,
+              ),
+            ),
           ),
           obscureText: true,
         ),
