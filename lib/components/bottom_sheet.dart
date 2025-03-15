@@ -147,7 +147,7 @@ Widget buildLoginForm() {
               String? result = await authServices.login(
                   emailController.text, passwordController.text);
               if (result == "success") {
-                Get.toNamed("/NavBar");
+                Get.offAllNamed("/NavBar");
                 Get.snackbar("success", "Your are login now..",
                     backgroundColor: sttext,
                     colorText: Colors.white,
@@ -155,7 +155,9 @@ Widget buildLoginForm() {
                         .BOTTOM); // Navigate only if login is successful
               } else {
                 Get.snackbar("Login Failed", result ?? "Unknown error",
-                    backgroundColor: Colors.red, colorText: Colors.white);
+                    backgroundColor: Colors.red,
+                    colorText: Colors.white,
+                    snackPosition: SnackPosition.BOTTOM);
               }
             },
             style: ElevatedButton.styleFrom(
@@ -267,7 +269,7 @@ Widget buildRegisterForm() {
           ),
           obscureText: true,
         ),
-        SizedBox(height: 24),
+        SizedBox(height: 15),
         ElevatedButton(
           onPressed: () async {
             String? result =
@@ -293,7 +295,32 @@ Widget buildRegisterForm() {
             style: TextStyle(color: Colors.white, fontSize: 18),
           ),
         ),
-        SizedBox(height: 20),
+        SizedBox(
+          height: 13,
+        ),
+        Container(
+          width: 250,
+          height: 45,
+          decoration: BoxDecoration(
+            color: Colors.grey[20],
+            borderRadius: BorderRadius.circular(13),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/google.png",
+                width: 30,
+                height: 30,
+              ),
+              SizedBox(width: 10),
+              Text(
+                " Login with Google",
+                style: TextStyle(color: Colors.black, fontSize: 16),
+              ),
+            ],
+          ),
+        )
       ],
     ),
   );

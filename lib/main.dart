@@ -6,6 +6,7 @@ import 'package:shopstore/components/nav_bar.dart';
 import 'package:shopstore/firebase_options.dart';
 import 'package:shopstore/routes/app_routes.dart';
 import 'package:shopstore/screen/veiw_thanks.dart';
+import 'package:shopstore/screen/view_dashbored.dart';
 import 'package:shopstore/screen/view_splash.dart';
 
 void main() async {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
       getPages: allPage,
-      home: ViewSplash(),
+      home: ViewDashbored(),
     );
   }
 }
