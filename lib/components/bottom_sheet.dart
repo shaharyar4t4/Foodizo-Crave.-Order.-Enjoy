@@ -125,6 +125,14 @@ Widget buildLoginForm() {
           ),
         ),
         SizedBox(height: 15),
+        Padding(
+          padding: const EdgeInsets.only(left: 160),
+          child: const Text(
+            "Forgot Password?",
+            style: TextStyle(color: sttext),
+          ),
+        ),
+        SizedBox(height: 15),
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -151,7 +159,7 @@ Widget buildLoginForm() {
               }
             },
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
+              padding: EdgeInsets.symmetric(horizontal: 100, vertical: 12),
               backgroundColor: Colors.transparent,
               shadowColor: Colors.transparent,
             ),
@@ -161,18 +169,12 @@ Widget buildLoginForm() {
             ),
           ),
         ),
-        Divider(
-          color: Colors.grey,
-          height: 40,
-          thickness: 0.2,
-          indent: 5,
-          endIndent: 5,
-        ),
+        SizedBox(height: 20),
         Container(
           width: 250,
           height: 45,
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: Colors.grey[20],
             borderRadius: BorderRadius.circular(13),
           ),
           child: Row(
@@ -207,10 +209,21 @@ Widget buildRegisterForm() {
               bottom: MediaQuery.of(Get.context!).viewInsets.bottom),
           child: TextField(
             decoration: InputDecoration(
-                labelText: "Full Name",
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.grey.shade100))),
+              hintText: "Full Name",
+              hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+              fillColor: Colors.grey[50],
+              filled: true,
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: const BorderSide(
+                  color: sttext, // Border color when focused
+                  width: 2.0,
+                ),
+              ),
+            ),
           ),
         ),
         SizedBox(height: 15),
