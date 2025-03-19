@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopstore/components/category_Item.dart';
 import 'package:shopstore/util/cont_color.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -11,9 +12,9 @@ class ViewDashbored extends StatefulWidget {
 }
 
 class _ViewDashboredState extends State<ViewDashbored> {
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -162,10 +163,39 @@ class _ViewDashboredState extends State<ViewDashbored> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    _buildCategoryItem('Burger', "assets/images/burger.png", sttext),
-                    _buildCategoryItem('Pizza', "assets/images/pizza.png", sttext),
-                    _buildCategoryItem(
-                        'Sandwich', "assets/images/hotdog.png", sttext),
+                    CategoryItem(
+                      title: 'Burger',
+                      image: "assets/images/burger.png",
+                      color: sttext,
+                      isSelected: selectedIndex == 0, // Check selection
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 0; // Update selection
+                        });
+                      },
+                    ),
+                    CategoryItem(
+                      title: 'Pizza',
+                      image: "assets/images/pizza.png",
+                      color: sttext,
+                      isSelected: selectedIndex == 1,
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 1;
+                        });
+                      },
+                    ),
+                    CategoryItem(
+                      title: 'Sandwich',
+                      image: "assets/images/hotdog.png",
+                      color: sttext,
+                      isSelected: selectedIndex == 2,
+                      onTap: () {
+                        setState(() {
+                          selectedIndex = 2;
+                        });
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -285,39 +315,39 @@ class _ViewDashboredState extends State<ViewDashbored> {
     );
   }
 
-  Widget _buildCategoryItem(String title, String image, Color color) {
-    bool isSelected = false;
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          isSelected = !isSelected; // Toggle selection state
-        });
-      },
-      child: Container(
-        margin: EdgeInsets.only(right: 8.0),
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.pink : Colors.white, // Change color on tap
-          borderRadius: BorderRadius.circular(12.0),
-          border: Border.all(color: sttext),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset(image, height: 24,),
-            SizedBox(width: 8),
-            Text(
-              title,
-              style: TextStyle(
-                color: isSelected ? Colors.white : Colors.black, // Change text color when selected
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget _buildCategoryItem(String title, String image, Color color) {
+  //   bool isSelected = false;
+  //   return GestureDetector(
+  //     onTap: () {
+  //       setState(() {
+  //         isSelected = !isSelected;// Toggle selection state
+  //       });
+  //     },
+  //     child: Container(
+  //       margin: EdgeInsets.only(right: 8.0),
+  //       padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+  //       decoration: BoxDecoration(
+  //         color: isSelected ? Colors.pink : Colors.white, // Change color on tap
+  //         borderRadius: BorderRadius.circular(12.0),
+  //         border: Border.all(color: sttext),
+  //       ),
+  //       child: Row(
+  //         mainAxisSize: MainAxisSize.min,
+  //         children: [
+  //           Image.asset(image, height: 24,),
+  //           SizedBox(width: 8),
+  //           Text(
+  //             title,
+  //             style: TextStyle(
+  //               color: isSelected ? Colors.white : Colors.black, // Change text color when selected
+  //               fontWeight: FontWeight.bold,
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget _buildFoodItem({
     required String image,
