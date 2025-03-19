@@ -13,6 +13,7 @@ class ViewDashbored extends StatefulWidget {
 class _ViewDashboredState extends State<ViewDashbored> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -154,19 +155,20 @@ class _ViewDashboredState extends State<ViewDashbored> {
                 ),
               ),
               // Food Categories (Horizontal Scroll)
-              // Container(
-              //   padding: EdgeInsets.symmetric(horizontal: 16.0),
-              //   height: 60,
-              //   child: ListView(
-              //     scrollDirection: Axis.horizontal,
-              //     children: [
-              //       _buildCategoryItem('Burger', Icons.fastfood, Colors.pink),
-              //       _buildCategoryItem('Pizza', Icons.local_pizza, Colors.pink),
-              //       _buildCategoryItem(
-              //           'Sandwich', Icons.send_and_archive, Colors.pink),
-              //     ],
-              //   ),
-              // ),
+              SizedBox(height: 10,),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 7.0),
+                height: 60,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    _buildCategoryItem('Burger', "assets/images/burger.png", sttext),
+                    _buildCategoryItem('Pizza', "assets/images/pizza.png", sttext),
+                    _buildCategoryItem(
+                        'Sandwich', "assets/images/hotdog.png", sttext),
+                  ],
+                ),
+              ),
               // Food Items Grid
               // GridView.count(
               //   shrinkWrap: true,
@@ -283,24 +285,36 @@ class _ViewDashboredState extends State<ViewDashbored> {
     );
   }
 
-  Widget _buildCategoryItem(String title, IconData icon, Color color) {
-    return Container(
-      margin: EdgeInsets.only(right: 8.0),
-      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12.0),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: color),
-          SizedBox(width: 8),
-          Text(
-            title,
-            style: TextStyle(color: color, fontWeight: FontWeight.bold),
-          ),
-        ],
+  Widget _buildCategoryItem(String title, String image, Color color) {
+    bool isSelected = false;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isSelected = !isSelected; // Toggle selection state
+        });
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.pink : Colors.white, // Change color on tap
+          borderRadius: BorderRadius.circular(12.0),
+          border: Border.all(color: sttext),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(image, height: 24,),
+            SizedBox(width: 8),
+            Text(
+              title,
+              style: TextStyle(
+                color: isSelected ? Colors.white : Colors.black, // Change text color when selected
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
