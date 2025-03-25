@@ -28,7 +28,7 @@ Widget buildFoodItem({
           padding: const EdgeInsets.only(left: 5, top: 5),
           child: Row(
             children: [
-              Icon(Icons.star, color: Colors.yellow, size: 20),
+              Icon(Icons.star, color: star_color, size: 20),
               SizedBox(width: 4),
               Text(
                 rating.toString(),

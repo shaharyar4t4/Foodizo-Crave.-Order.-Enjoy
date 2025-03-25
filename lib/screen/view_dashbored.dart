@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopstore/components/category_Item.dart';
 import 'package:shopstore/components/product_item.dart';
+import 'package:shopstore/components/proper_items_product.dart';
 import 'package:shopstore/util/cont_color.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -56,6 +57,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                   ],
                 ),
               ),
+
               // Search Bar
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 8.0),
@@ -72,10 +74,13 @@ class _ViewDashboredState extends State<ViewDashbored> {
                   ),
                 ),
               ),
+
               // Special Offer Banner
               SizedBox(
                 height: 15,
               ),
+
+              //banner image
               Container(
                 width: 340,
                 height: 160,
@@ -160,6 +165,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                   ],
                 ),
               ),
+
               // Food Categories (Horizontal Scroll)
               SizedBox(height: 10,),
               Container(
@@ -238,6 +244,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                   ),
                 ],
               ),
+
               // Popular Meal Menu
               Padding(
                 padding: EdgeInsets.all(16.0),
@@ -264,61 +271,14 @@ class _ViewDashboredState extends State<ViewDashbored> {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
-                padding: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/image3.png',
-                      // Replace with your pizza image asset path
-                      width: 80,
-                      height: 80,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Pepper Pizza',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                '\$15',
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                    color: sttext),
-                              ),
-                            ],
-                          ),
-                          Text(
-                            '5kg box of pizza',
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+
+              // Product Items
+              ProductItemWidget(
+                image: 'assets/images/image3.png',
+                title: 'Pepper Pizza',
+                price: '\$15',
+                description: '5kg box of pizza',
+                priceColor: sttext,
               ),
               SizedBox(height: 16),
               // Add some space at the bottom
