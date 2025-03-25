@@ -8,6 +8,7 @@ TextEditingController passwordController = TextEditingController();
 TextEditingController emailsig = TextEditingController();
 TextEditingController passsig = TextEditingController();
 AuthServices authServices = AuthServices();
+final RxBool isSecure = true.obs;
 
 void bottomSheet() {
   Get.bottomSheet(
@@ -104,14 +105,24 @@ Widget buildLoginForm() {
           ),
         ),
         SizedBox(height: 15),
-        TextField(
+        Obx(()=>TextField(
           controller: passwordController,
-          obscureText: true,
+          obscureText: isSecure.value,
           decoration: InputDecoration(
             hintText: "***** *****",
             hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
             fillColor: Colors.grey[50],
             filled: true,
+            suffixIcon: InkWell(
+              onTap: () {
+                isSecure.value = !isSecure.value;
+              },
+              child: Icon(
+                isSecure.value
+                    ? Icons.remove_red_eye_outlined
+                    : Icons.remove_red_eye,
+              ),
+            ),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide.none),
@@ -123,7 +134,7 @@ Widget buildLoginForm() {
               ),
             ),
           ),
-        ),
+        ),),
         SizedBox(height: 15),
         Padding(
           padding: const EdgeInsets.only(left: 160),
@@ -249,12 +260,22 @@ Widget buildRegisterForm() {
           ),
         ),
         SizedBox(height: 15),
-        TextField(
-          controller: passsig, // Fix: Assign Controller
+        Obx(()=>TextField(
+          controller: passsig,
           decoration: InputDecoration(
             hintText: "***** *****",
             hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
             fillColor: Colors.grey[50],
+            suffixIcon: InkWell(
+              onTap: () {
+                isSecure.value = !isSecure.value;
+              },
+              child: Icon(
+                isSecure.value
+                    ? Icons.remove_red_eye_outlined
+                    : Icons.remove_red_eye,
+              ),
+            ),
             filled: true,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -267,8 +288,8 @@ Widget buildRegisterForm() {
               ),
             ),
           ),
-          obscureText: true,
-        ),
+          obscureText: isSecure.value,
+        ),),
         SizedBox(height: 15),
         ElevatedButton(
           onPressed: () async {
