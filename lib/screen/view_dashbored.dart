@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopstore/components/category_Item.dart';
+import 'package:shopstore/components/product_item.dart';
 import 'package:shopstore/util/cont_color.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -14,6 +15,7 @@ class ViewDashbored extends StatefulWidget {
 class _ViewDashboredState extends State<ViewDashbored> {
 
   int selectedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,9 @@ class _ViewDashboredState extends State<ViewDashbored> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   image: DecorationImage(
-                      image: Image.asset("assets/images/pattern.png").image,
+                      image: Image
+                          .asset("assets/images/pattern.png")
+                          .image,
                       fit: BoxFit.cover),
                 ),
                 child: Row(
@@ -73,7 +77,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                 height: 15,
               ),
               Container(
-                width: 350,
+                width: 340,
                 height: 160,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -133,12 +137,12 @@ class _ViewDashboredState extends State<ViewDashbored> {
                             ),
                             child: Center(
                                 child: Text(
-                              "Buy Now",
-                              style: TextStyle(
-                                  color: sbtn,
-                                  fontSize: 10,
-                                  fontFamily: "popinbold"),
-                            )),
+                                  "Buy Now",
+                                  style: TextStyle(
+                                      color: sbtn,
+                                      fontSize: 10,
+                                      fontFamily: "popinbold"),
+                                )),
                           )
                         ],
                       ),
@@ -168,7 +172,8 @@ class _ViewDashboredState extends State<ViewDashbored> {
                       title: 'Burger',
                       image: "assets/images/burger.png",
                       color: sttext,
-                      isSelected: selectedIndex == 0, // Check selection
+                      isSelected: selectedIndex == 0,
+                      // Check selection
                       onTap: () {
                         setState(() {
                           selectedIndex = 0; // Update selection
@@ -212,23 +217,23 @@ class _ViewDashboredState extends State<ViewDashbored> {
                     onTap: () {
                       Get.toNamed('/product');
                     },
-                    child: _buildFoodItem(
+                    child: buildFoodItem(
                       image: 'assets/images/product1.png',
                       // Replace with your asset path
                       title: 'Chicken Burger',
                       rating: 3.8,
                       description:
-                          '100 gr chicken burger + tomato + cheese Lettuce',
+                      '100 gr chicken burger + tomato + cheese Lettuce',
                       price: '\$20.',
                     ),
                   ),
-                  _buildFoodItem(
+                  buildFoodItem(
                     image: 'assets/images/product2.png',
                     // Replace with your asset path
                     title: 'Cheese Burger',
                     rating: 4.5,
                     description:
-                        '100 gr meat burger + onion + tomato + cheese',
+                    '100 gr meat burger + onion + tomato + cheese',
                     price: '\$15.',
                   ),
                 ],
@@ -242,15 +247,18 @@ class _ViewDashboredState extends State<ViewDashbored> {
                     Text(
                       'Popular Meal Menu',
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Row(
                       children: [
                         Text(
                           'See All',
-                          style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 16,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold),
                         ),
-                        Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 17,),
+                        Icon(Icons.arrow_forward_ios, color: Colors.grey,
+                          size: 17,),
                       ],
                     ),
                   ],
@@ -317,118 +325,6 @@ class _ViewDashboredState extends State<ViewDashbored> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildFoodItem({
-    required String image,
-    required String title,
-    required double rating,
-    required String description,
-    required String price,
-  }) {
-    return Container(
-
-      margin: EdgeInsets.only(right: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            blurRadius: 6,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 5, top: 5),
-            child: Row(
-              children: [
-                Icon(Icons.star, color: star_color, size: 20),
-                SizedBox(width: 4),
-                Text(
-                  rating.toString(),
-                  style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
-            child: Padding(
-              padding: const EdgeInsets.only(top: 6),
-              child: Image.asset(
-                image,
-                height: 100,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      title,
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 8,),
-                Text(
-                  description,
-                  style: TextStyle(fontSize: 10, color: Colors.grey, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 15,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          price,
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: sttext),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: Text(
-                            "00",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: sttext),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(4.0),
-                      decoration: BoxDecoration(
-                        color: sttext,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(Icons.add, color: Colors.white, size: 18),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
