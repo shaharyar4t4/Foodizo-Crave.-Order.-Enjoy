@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopstore/util/cont_color.dart';
 
-import '../components/bottom_sheet.dart';
+import 'view_bottom_sheet.dart';
 
 class Onbroad extends StatefulWidget {
   const Onbroad({super.key});
