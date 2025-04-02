@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopstore/components/product_detial.dart';
 import 'package:shopstore/util/cont_color.dart';
 
 class ProductPage extends StatelessWidget {
@@ -74,98 +75,17 @@ class ProductPage extends StatelessWidget {
                 ),
               ],
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: bar_color,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          'Popular',
-                          style: TextStyle(
-                              color: sttext, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Spacer(),
-                      Container(
-                        padding: EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                            color: bar_color,
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Icon(
-                          CupertinoIcons.location_solid,
-                          color: sttext,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 13,
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                            color: cir_color,
-                            borderRadius: BorderRadius.circular(50)),
-                        child: Icon(CupertinoIcons.heart, color: Colors.black),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'Chicken Burger Promo Pack',
-                  style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 8),
-                // Row(
-                //   children: [
-                //     Icon(Icons.star, color: Colors.amber, size: 20),
-                //     SizedBox(width: 4),
-                //     Text('4.8 Rating', style: TextStyle(color: Colors.grey)),
-                //     SizedBox(width: 10),
-                //     Text('7000+ Orders', style: TextStyle(color: Colors.grey)),
-                //   ],
-                // ),
-                SizedBox(height: 8),
-                // Text(
-                //   'In a medium bowl, add ground chicken, breadcrumbs, mayonnaise, onions, parsley, garlic, paprika, salt and pepper. Use your hands to combine all the ingredients together.',
-                //   style: TextStyle(color: Colors.black),
-                // ),
-                SizedBox(
-                  height: 20,
-                ),
-                // SizedBox(
-                //   width: double.infinity,
-                //   child: ElevatedButton(
-                //     style: ElevatedButton.styleFrom(
-                //       backgroundColor: Colors.pinkAccent,
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(12),
-                //       ),
-                //     ),
-                //     onPressed: () {
-                //       Get.toNamed('order');
-                //     },
-                //     child: Padding(
-                //       padding: EdgeInsets.symmetric(vertical: 14),
-                //       child: Text(
-                //         'Add To Cart',
-                //         style: TextStyle(
-                //             fontSize: 18,
-                //             fontWeight: FontWeight.bold,
-                //             color: Colors.white),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-              ],
+            buildPromoSection(
+              title: "Chicken Burger Promo Pack",
+              subtitle: "Add to Cart",
+              description:
+                  "In a medium bowl, add ground chicken, breadcrumbs, mayonnaise, onions, parsley, garlic, paprika, salt and pepper. Use your hands to combine all the ingredients together until blended, but don't over mix.",
+              starText: "4,8 Rating",
+              orderPack: "7000+ Order",
+              barColor: bar_color,
+              starColor: star_color,
+              sttext: sttext,
+              cirColor: cir_color,
             ),
           ],
         ),
