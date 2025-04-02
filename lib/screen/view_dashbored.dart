@@ -14,7 +14,6 @@ class ViewDashbored extends StatefulWidget {
 }
 
 class _ViewDashboredState extends State<ViewDashbored> {
-
   int selectedIndex = -1;
 
   @override
@@ -31,9 +30,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   image: DecorationImage(
-                      image: Image
-                          .asset("assets/images/pattern.png")
-                          .image,
+                      image: Image.asset("assets/images/pattern.png").image,
                       fit: BoxFit.cover),
                 ),
                 child: Row(
@@ -142,12 +139,12 @@ class _ViewDashboredState extends State<ViewDashbored> {
                             ),
                             child: Center(
                                 child: Text(
-                                  "Buy Now",
-                                  style: TextStyle(
-                                      color: sbtn,
-                                      fontSize: 10,
-                                      fontFamily: "popinbold"),
-                                )),
+                              "Buy Now",
+                              style: TextStyle(
+                                  color: sbtn,
+                                  fontSize: 10,
+                                  fontFamily: "popinbold"),
+                            )),
                           )
                         ],
                       ),
@@ -167,7 +164,9 @@ class _ViewDashboredState extends State<ViewDashbored> {
               ),
 
               // Food Categories (Horizontal Scroll)
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 7.0),
                 height: 60,
@@ -229,7 +228,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                       title: 'Chicken Burger',
                       rating: 3.8,
                       description:
-                      '100 gr chicken burger + tomato + cheese Lettuce',
+                          '100 gr chicken burger + tomato + cheese Lettuce',
                       price: '\$20.',
                     ),
                   ),
@@ -238,8 +237,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                     // Replace with your asset path
                     title: 'Cheese Burger',
                     rating: 4.5,
-                    description:
-                    '100 gr meat burger + onion + tomato + cheese',
+                    description: '100 gr meat burger + onion + tomato + cheese',
                     price: '\$15.',
                   ),
                 ],
@@ -254,18 +252,22 @@ class _ViewDashboredState extends State<ViewDashbored> {
                     Text(
                       'Popular Meal Menu',
                       style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Row(
                       children: [
                         Text(
                           'See All',
-                          style: TextStyle(fontSize: 16,
+                          style: TextStyle(
+                              fontSize: 16,
                               color: Colors.grey,
                               fontWeight: FontWeight.bold),
                         ),
-                        Icon(Icons.arrow_forward_ios, color: Colors.grey,
-                          size: 17,),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.grey,
+                          size: 17,
+                        ),
                       ],
                     ),
                   ],
