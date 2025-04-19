@@ -174,6 +174,7 @@ class OrderDetailsPage extends StatelessWidget {
     );
   }
 
+  /// Helper method to build summary rows
   Widget _buildSummaryRow(String title, String amount, {bool isBold = false}) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 4.0),
