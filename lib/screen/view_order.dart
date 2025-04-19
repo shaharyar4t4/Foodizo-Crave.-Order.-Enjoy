@@ -72,6 +72,7 @@ class OrderDetailsPage extends StatelessWidget {
     );
   }
 
+  // Build the order item widget
   Widget _buildOrderItem(String name, String place, String image, int price,
       int quantity, int index) {
     return Card(
