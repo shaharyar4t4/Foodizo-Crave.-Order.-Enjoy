@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopstore/controller/cart_controller.dart';
 import 'package:shopstore/util/cont_color.dart';
 
 class OrderDetailsPage extends StatelessWidget {
+  // Ensure the CartController is initialized and accessible
+  final CartController cartController = Get.find<CartController>();
+
+  OrderDetailsPage() {
+    // Debug: Print the cart items when the page is loaded
+    print("Cart items on page load: ${cartController.cartItems.length}");
+    cartController.cartItems.forEach((item) {
+      print("Item: ${item['name']}, Quantity: ${item['quantity']}");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +29,9 @@ class OrderDetailsPage extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: Icon(Icons.arrow_back, color: Colors.redAccent),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.back();
+                    },
                   ),
                   SizedBox(width: 10),
                   Text(
@@ -28,17 +42,28 @@ class OrderDetailsPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView(
-                padding: EdgeInsets.all(16.0),
-                children: [
-                  _buildOrderItem('Chicken Burger', 'Burger Factory LTD',
-                      'assets/images/imageone.png', 20),
-                  _buildOrderItem('Onion Pizza', 'Pizza Palace',
-                      'assets/images/imagetwo.png', 15),
-                  _buildOrderItem('Spicy Shawarma', 'Hot Cool Spot',
-                      'assets/images/imagethree.png', 15),
-                ],
-              ),
+              child: Obx(() {
+                // Debug: Print the cart items whenever the Obx rebuilds
+                print(
+                    "Obx rebuild - Cart items: ${cartController.cartItems.length}");
+                return cartController.cartItems.isEmpty
+                    ? Center(child: Text("No items in cart"))
+                    : ListView.builder(
+                        padding: EdgeInsets.all(16.0),
+                        itemCount: cartController.cartItems.length,
+                        itemBuilder: (context, index) {
+                          var item = cartController.cartItems[index];
+                          return _buildOrderItem(
+                            item['name'],
+                            item['place'],
+                            item['image'],
+                            item['price'],
+                            item['quantity'],
+                            index,
+                          );
+                        },
+                      );
+              }),
             ),
             _buildOrderSummary(),
           ],
@@ -47,7 +72,8 @@ class OrderDetailsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildOrderItem(String name, String place, String image, int price) {
+  Widget _buildOrderItem(String name, String place, String image, int price,
+      int quantity, int index) {
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -78,13 +104,17 @@ class OrderDetailsPage extends StatelessWidget {
               children: [
                 IconButton(
                     icon: Icon(Icons.remove, color: Colors.redAccent),
-                    onPressed: () {}),
-                Text('1',
+                    onPressed: () {
+                      cartController.decrementQuantity(index);
+                    }),
+                Text('$quantity',
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 IconButton(
                     icon: Icon(Icons.add, color: Colors.redAccent),
-                    onPressed: () {}),
+                    onPressed: () {
+                      cartController.incrementQuantity(index);
+                    }),
               ],
             ),
           ],
@@ -107,38 +137,40 @@ class OrderDetailsPage extends StatelessWidget {
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildSummaryRow('Sub-Total', '100\$'),
-          _buildSummaryRow('Delivery Charge', '10\$'),
-          _buildSummaryRow('Discount', '-10\$'),
-          Divider(color: Colors.white),
-          _buildSummaryRow('Total', '110\$', isBold: true),
-          SizedBox(height: 12),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
+      child: Obx(() => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildSummaryRow(
+                  'Sub-Total', '${cartController.getSubTotal()}\$'),
+              _buildSummaryRow('Delivery Charge', '10\$'),
+              _buildSummaryRow('Discount', '-10\$'),
+              Divider(color: Colors.white),
+              _buildSummaryRow('Total', '${cartController.getTotal()}\$',
+                  isBold: true),
+              SizedBox(height: 12),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                  onPressed: () {
+                    Get.toNamed('thanks');
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 14),
+                    child: Text('Place My Order',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.redAccent)),
+                  ),
+                ),
               ),
-              onPressed: () {
-                Get.toNamed('thanks');
-              },
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 14),
-                child: Text('Place My Order',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.redAccent)),
-              ),
-            ),
-          ),
-        ],
-      ),
+            ],
+          )),
     );
   }
 

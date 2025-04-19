@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopstore/components/product_detial.dart';
+import 'package:shopstore/controller/cart_controller.dart';
 import 'package:shopstore/util/cont_color.dart';
 
 class ProductPage extends StatelessWidget {
+  final CartController cartController = Get.put(CartController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +46,7 @@ class ProductPage extends StatelessWidget {
                   top: MediaQuery.of(context).size.height * 0.45,
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height *
-                        0.65, // Reduced height
+                    height: MediaQuery.of(context).size.height * 0.65,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
@@ -61,10 +63,9 @@ class ProductPage extends StatelessWidget {
                             top: 10,
                           ),
                           child: Container(
-                            height:
-                                6, // Added height to the inner container for visibility
+                            height: 6,
                             decoration: BoxDecoration(
-                              color: bar_color, // Ensure bar_color is defined
+                              color: bar_color,
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
@@ -86,6 +87,15 @@ class ProductPage extends StatelessWidget {
               starColor: star_color,
               sttext: sttext,
               cirColor: cir_color,
+              onAddToCart: () {
+                cartController.addToCart(
+                  "Chicken Burger Promo Pack",
+                  "Burger Factory LTD",
+                  "assets/images/product.png",
+                  20,
+                );
+                Get.toNamed('order');
+              },
             ),
           ],
         ),

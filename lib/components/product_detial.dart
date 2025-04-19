@@ -12,6 +12,7 @@ Widget buildPromoSection({
   Color? cirColor,
   Color? sttext,
   Color? starColor,
+  VoidCallback? onAddToCart, // Add the onAddToCart callback parameter
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,9 +99,7 @@ Widget buildPromoSection({
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            onPressed: () {
-              Get.toNamed('order');
-            },
+            onPressed: onAddToCart, // Use the onAddToCart callback
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 14),
               child: Text(

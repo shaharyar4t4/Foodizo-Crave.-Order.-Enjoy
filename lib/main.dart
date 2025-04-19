@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:shopstore/components/product_detial.dart';
 import 'package:shopstore/firebase_options.dart';
 import 'package:shopstore/routes/app_routes.dart';
 import 'package:shopstore/screen/view_product.dart';
