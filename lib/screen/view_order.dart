@@ -123,6 +123,7 @@ class OrderDetailsPage extends StatelessWidget {
     );
   }
 
+  // Build the order summary section
   Widget _buildOrderSummary() {
     return Container(
       height: 250,
