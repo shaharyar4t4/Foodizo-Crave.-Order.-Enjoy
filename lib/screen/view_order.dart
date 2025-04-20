@@ -160,13 +160,21 @@ class OrderDetailsPage extends StatelessWidget {
       padding: EdgeInsets.all(16.0),
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [sttext, sbtn],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         image: DecorationImage(
           image: AssetImage('assets/images/vieworder.png'),
           fit: BoxFit.cover,
+          opacity: 0.3,
         ),
-        color: sttext,
         borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+            bottomLeft: Radius.circular(10),
+            bottomRight: Radius.circular(10)),
       ),
       child: Obx(() => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
