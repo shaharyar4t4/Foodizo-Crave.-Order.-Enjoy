@@ -232,13 +232,19 @@ class _ViewDashboredState extends State<ViewDashbored> {
                       price: '\$20.',
                     ),
                   ),
-                  buildFoodItem(
-                    image: 'assets/images/product2.png',
-                    // Replace with your asset path
-                    title: 'Cheese Burger',
-                    rating: 4.5,
-                    description: '100 gr meat burger + onion + tomato + cheese',
-                    price: '\$15.',
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/producttwo');
+                    },
+                    child: buildFoodItem(
+                      image: 'assets/images/product2.png',
+                      // Replace with your asset path
+                      title: 'Cheese Burger',
+                      rating: 4.5,
+                      description:
+                          '100 gr meat burger + onion + tomato + cheese',
+                      price: '\$15.',
+                    ),
                   ),
                 ],
               ),

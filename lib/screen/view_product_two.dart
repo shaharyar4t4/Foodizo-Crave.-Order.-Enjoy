@@ -21,7 +21,7 @@ class ViewProductTwo extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.5,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/product2.jpg'),
+                      image: AssetImage('assets/images/product1.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
