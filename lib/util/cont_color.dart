@@ -6,3 +6,4 @@ const Color sbtn1 = Color(0xFFFFE1B4);
 const Color star_color = Color(0xFFFF9F06);
 const Color bar_color = Color.fromARGB(80, 255, 203, 203);
 const Color cir_color = Color.fromARGB(112, 220, 219, 219);
+const Color cir_color1 = Color.fromARGB(246, 240, 240, 240);

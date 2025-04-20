@@ -27,11 +27,17 @@ class OrderDetailsPage extends StatelessWidget {
               padding: EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_back, color: Colors.redAccent),
-                    onPressed: () {
-                      Get.back();
-                    },
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xAEFFD7D7),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back, color: sttext),
+                      onPressed: () {
+                        Get.back();
+                      },
+                    ),
                   ),
                   SizedBox(width: 10),
                   Text(
@@ -49,7 +55,7 @@ class OrderDetailsPage extends StatelessWidget {
                 return cartController.cartItems.isEmpty
                     ? Center(child: Text("No items in cart"))
                     : ListView.builder(
-                        padding: EdgeInsets.all(16.0),
+                        padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                         itemCount: cartController.cartItems.length,
                         itemBuilder: (context, index) {
                           var item = cartController.cartItems[index];
@@ -76,14 +82,17 @@ class OrderDetailsPage extends StatelessWidget {
   Widget _buildOrderItem(String name, String place, String image, int price,
       int quantity, int index) {
     return Card(
+      color: Colors.white,
       elevation: 2,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Padding(
         padding: EdgeInsets.all(12.0),
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(10),
               child:
                   Image.asset(image, width: 60, height: 60, fit: BoxFit.cover),
             ),
@@ -94,17 +103,28 @@ class OrderDetailsPage extends StatelessWidget {
                 children: [
                   Text(name,
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                  Text(place, style: TextStyle(color: Colors.grey)),
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 5),
+                  Text(place,
+                      style: TextStyle(color: Colors.grey, fontSize: 12)),
+                  SizedBox(height: 10),
                   Text('\$${price}',
-                      style: TextStyle(color: Colors.redAccent, fontSize: 16)),
+                      style: TextStyle(
+                          color: sttext,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
             Row(
               children: [
                 IconButton(
-                    icon: Icon(Icons.remove, color: Colors.redAccent),
+                    icon: Container(
+                        decoration: BoxDecoration(
+                          color: cir_color1,
+                          borderRadius: BorderRadius.circular(7),
+                        ),
+                        child: Icon(Icons.remove, color: sttext)),
                     onPressed: () {
                       cartController.decrementQuantity(index);
                     }),
@@ -112,7 +132,16 @@ class OrderDetailsPage extends StatelessWidget {
                     style:
                         TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 IconButton(
-                    icon: Icon(Icons.add, color: Colors.redAccent),
+                    icon: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [sttext, sbtn],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          borderRadius: BorderRadius.circular(7),
+                        ),
+                        child: Icon(Icons.add, color: Colors.white)),
                     onPressed: () {
                       cartController.incrementQuantity(index);
                     }),
