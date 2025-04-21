@@ -77,24 +77,24 @@ class ViewProductTwo extends StatelessWidget {
               ],
             ),
             buildPromoSection(
-              title: "Chicken Burger Promo Pack",
+              title: "Cheese Burger Promo Pack",
               subtitle: "Add to Cart",
               description:
                   "In a medium bowl, add ground chicken, breadcrumbs, mayonnaise, onions, parsley, garlic, paprika, salt and pepper. Use your hands to combine all the ingredients together until blended, but don't over mix.",
-              starText: "4,8 Rating",
-              orderPack: "7000+ Order",
+              starText: "4.9 Rating",
+              orderPack: "9000+ Order",
               barColor: bar_color,
               starColor: star_color,
               sttext: sttext,
               cirColor: cir_color,
               onAddToCart: () {
                 cartController.addToCart(
-                  "Chicken Burger Promo Pack",
+                  "Cheese Burger Promo Pack",
                   "Burger Factory LTD",
-                  "assets/images/product.png",
+                  "assets/images/product1.jpg",
                   20,
                 );
-                Get.toNamed('order');
+                Get.toNamed('/order');
               },
             ),
           ],

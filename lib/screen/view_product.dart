@@ -94,7 +94,7 @@ class ProductPage extends StatelessWidget {
                   "assets/images/product.png",
                   20,
                 );
-                Get.toNamed('order');
+                Get.toNamed('/order');
               },
             ),
           ],

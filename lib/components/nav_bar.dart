@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopstore/screen/view_order.dart';
 
 import '../screen/view_dashbored.dart';
 
@@ -11,10 +12,10 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   int _selectedIndex = 0;
 
   // List of widgets to display for each tab
-  static const List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     ViewDashbored(),
     Center(child: Text('Profile Page', style: TextStyle(fontSize: 24))),
-    Center(child: Text('Cart Page', style: TextStyle(fontSize: 24))),
+    OrderDetailsPage(),
     Center(child: Text('Chat Page', style: TextStyle(fontSize: 24))),
   ];
 
