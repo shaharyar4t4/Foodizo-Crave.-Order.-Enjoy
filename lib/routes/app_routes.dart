@@ -13,41 +13,41 @@ var allPage = [
   GetPage(
     name: '/onbroad',
     page: () => Onbroad(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
   GetPage(
     name: '/dashbored',
     page: () => ViewDashbored(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
   GetPage(
     name: '/NavBar',
     page: () => NavBar(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
   GetPage(
     name: '/product',
     page: () => ProductPage(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
   GetPage(
     name: '/producttwo',
     page: () => ViewProductTwo(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
   GetPage(
     name: '/order',
     page: () => OrderDetailsPage(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
   GetPage(
     name: '/pizza',
     page: () => PizzaHomePage(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
   GetPage(
     name: '/thanks',
     page: () => OrderCompletedScreen(),
-    transition: Transition.leftToRight,
+    transition: Transition.cupertino,
   ),
 ];
