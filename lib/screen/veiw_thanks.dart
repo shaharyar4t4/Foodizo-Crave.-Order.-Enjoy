@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:lottie/lottie.dart';
 import 'package:shopstore/util/cont_color.dart';
 
 class OrderCompletedScreen extends StatelessWidget {
@@ -15,21 +16,12 @@ class OrderCompletedScreen extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.topCenter,
-              child: Image.asset(
-                'assets/images/thanks.png', // Add your background image
-                fit: BoxFit.cover,
-                height: 150,
-              ),
-            ),
-            SizedBox(height: 20),
-            CircleAvatar(
-              radius: 40,
-              backgroundColor: Colors.pinkAccent,
-              child: Icon(
-                Icons.check,
-                color: Colors.white,
-                size: 40,
-              ),
+              child: Center(
+                  child: LottieBuilder.asset(
+                "assets/lottie/Animation - 1745266276041.json",
+                width: 300,
+                height: 250,
+              )),
             ),
             SizedBox(height: 20),
             Text(
@@ -78,7 +70,8 @@ class OrderCompletedScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: sttext,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(10),
+                    side: BorderSide.none,
                   ),
                 ),
                 onPressed: () {
@@ -98,10 +91,4 @@ class OrderCompletedScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: OrderCompletedScreen(),
-  ));
 }

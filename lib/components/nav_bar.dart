@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopstore/screen/view_order.dart';
+import 'package:shopstore/util/cont_color.dart';
 
 import '../screen/view_dashbored.dart';
 
@@ -86,10 +87,10 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           type: BottomNavigationBarType.fixed,
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
-          selectedItemColor: Colors.pink[300],
-          unselectedItemColor: Colors.grey,
-          selectedLabelStyle: TextStyle(color: Colors.pink[300]),
-          unselectedLabelStyle: TextStyle(color: Colors.grey),
+          selectedItemColor: sttext,
+          unselectedItemColor: Colors.black,
+          selectedLabelStyle: TextStyle(color: sttext),
+          unselectedLabelStyle: TextStyle(color: Colors.black),
           showSelectedLabels: true,
           showUnselectedLabels: true,
           backgroundColor: Colors.transparent,
@@ -100,7 +101,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             _buildNavItem(Icons.shopping_cart, 'Cart'),
             _buildNavItem(Icons.chat_bubble, 'Chat'),
           ],
-          selectedIconTheme: IconThemeData(color: Colors.pink[300], size: 28),
+          selectedIconTheme: IconThemeData(color: sttext, size: 28),
           unselectedIconTheme: IconThemeData(color: Colors.grey, size: 24),
         ),
       ),
