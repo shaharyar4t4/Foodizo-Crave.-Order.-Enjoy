@@ -3,6 +3,7 @@ import 'package:shopstore/components/nav_bar.dart';
 import 'package:shopstore/screen/veiw_thanks.dart';
 import 'package:shopstore/screen/view_onbored.dart';
 import 'package:shopstore/screen/view_order.dart';
+import 'package:shopstore/screen/view_product_three.dart';
 import 'package:shopstore/screen/view_product_two.dart';
 
 import '../screen/veiw_onboredshop.dart';
@@ -33,6 +34,11 @@ var allPage = [
   GetPage(
     name: '/producttwo',
     page: () => ViewProductTwo(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/productthree',
+    page: () => ViewProductThree(),
     transition: Transition.cupertino,
   ),
   GetPage(

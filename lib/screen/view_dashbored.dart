@@ -281,12 +281,17 @@ class _ViewDashboredState extends State<ViewDashbored> {
               ),
 
               // Product Items
-              ProductItemWidget(
-                image: 'assets/images/image3.png',
-                title: 'Pepper Pizza',
-                price: '\$15',
-                description: '5kg box of pizza',
-                priceColor: sttext,
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed('/productthree');
+                },
+                child: ProductItemWidget(
+                  image: 'assets/images/image3.png',
+                  title: 'Pepper Pizza',
+                  price: '\$15',
+                  description: '5kg box of pizza',
+                  priceColor: sttext,
+                ),
               ),
               SizedBox(height: 16),
               // Add some space at the bottom
