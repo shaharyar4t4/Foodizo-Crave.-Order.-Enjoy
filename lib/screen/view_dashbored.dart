@@ -58,16 +58,19 @@ class _ViewDashboredState extends State<ViewDashbored> {
               // Search Bar
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    prefixIcon: Icon(CupertinoIcons.search),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide.none,
+                child: GestureDetector(
+                  child: TextField(
+                    onTap: () => Get.toNamed('/search'),
+                    decoration: InputDecoration(
+                      hintText: 'Search',
+                      prefixIcon: Icon(CupertinoIcons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      filled: true,
+                      fillColor: Color(0xFFFFF0F0),
                     ),
-                    filled: true,
-                    fillColor: Color(0xFFFFF0F0),
                   ),
                 ),
               ),

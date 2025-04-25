@@ -2,9 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shopstore/components/nav_bar.dart';
 import 'package:shopstore/controller/cart_controller.dart';
 import 'package:shopstore/firebase_options.dart';
 import 'package:shopstore/routes/app_routes.dart';
+import 'package:shopstore/screen/view_dashbored.dart';
 import 'package:shopstore/screen/view_product.dart';
 import 'package:shopstore/screen/view_product_two.dart';
 import 'package:shopstore/screen/view_splash.dart';
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
       getPages: allPage,
-      home: ViewSplash(),
+      home: NavBar(),
     );
   }
 }

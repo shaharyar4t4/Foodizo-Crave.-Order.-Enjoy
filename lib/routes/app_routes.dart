@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shopstore/components/nav_bar.dart';
+import 'package:shopstore/screen/veiw_search.dart';
 import 'package:shopstore/screen/veiw_thanks.dart';
 import 'package:shopstore/screen/view_onbored.dart';
 import 'package:shopstore/screen/view_order.dart';
@@ -54,6 +55,11 @@ var allPage = [
   GetPage(
     name: '/thanks',
     page: () => OrderCompletedScreen(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/search',
+    page: () => VeiwSearch(),
     transition: Transition.cupertino,
   ),
 ];
