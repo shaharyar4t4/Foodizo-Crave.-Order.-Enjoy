@@ -6,6 +6,7 @@ import 'package:shopstore/screen/view_onbored.dart';
 import 'package:shopstore/screen/view_order.dart';
 import 'package:shopstore/screen/view_product_three.dart';
 import 'package:shopstore/screen/view_product_two.dart';
+import 'package:shopstore/screen/view_profile.dart';
 
 import '../screen/veiw_onboredshop.dart';
 import '../screen/view_dashbored.dart';
@@ -60,6 +61,11 @@ var allPage = [
   GetPage(
     name: '/search',
     page: () => VeiwSearch(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/profile',
+    page: () => ViewProfile(),
     transition: Transition.cupertino,
   ),
 ];
