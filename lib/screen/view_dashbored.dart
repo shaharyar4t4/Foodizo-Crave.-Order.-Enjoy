@@ -54,6 +54,7 @@ class _ViewDashboredState extends State<ViewDashbored> {
                     Row(
                       children: [
                         Icon(CupertinoIcons.location_solid, color: sttext),
+                        const SizedBox(width: 5),
                         FutureBuilder<DocumentSnapshot>(
                           future: FirebaseFirestore.instance
                               .collection('profiles')
@@ -65,12 +66,12 @@ class _ViewDashboredState extends State<ViewDashbored> {
                               return Center(child: CircularProgressIndicator());
                             }
                             if (!snapshot.hasData || !snapshot.data!.exists) {
-                              return Center(child: Text("No Profile Found"));
+                              return Center(child: Text("Not Found Location"));
                             }
                             var data =
                                 snapshot.data!.data() as Map<String, dynamic>;
                             return Padding(
-                              padding: const EdgeInsets.all(20.0),
+                              padding: const EdgeInsets.only(top: 12),
                               child: Text("${data['address']}",
                                   style: TextStyle(fontSize: 18)),
                             );
