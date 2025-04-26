@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shopstore/screen/view_dashbored.dart';
 
 import '../util/cont_color.dart';
 
@@ -86,7 +87,11 @@ class ProfileShow extends StatelessWidget {
                   height: 130,
                   width: 350,
                   decoration: BoxDecoration(
-                    color: sttext,
+                    gradient: LinearGradient(
+                      colors: [sttext, sbtn],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
                       BoxShadow(
@@ -94,6 +99,61 @@ class ProfileShow extends StatelessWidget {
                         spreadRadius: 1,
                         blurRadius: 7,
                         offset: Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+                        child: Text("Rs 10,034.00",
+                            style: TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            )),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 20.0, top: 12),
+                                child: Text("Shaharyar Ali",
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 20.0,
+                                ),
+                                child: Text("2210 3090 22** ****",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    )),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20.0),
+                            child: const Icon(
+                              Icons.wallet,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -109,6 +169,7 @@ class ProfileShow extends StatelessWidget {
                       color: sttext,
                     )),
               ),
+              const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: FutureBuilder<DocumentSnapshot>(
@@ -145,6 +206,32 @@ class ProfileShow extends StatelessWidget {
                       ),
                     );
                   },
+                ),
+              ),
+              const SizedBox(height: 30),
+              Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [sttext, sbtn],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () => ViewDashbored(),
+                    style: ElevatedButton.styleFrom(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 100, vertical: 17),
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                    ),
+                    child: Text(
+                      "Back to Home",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                  ),
                 ),
               ),
             ],

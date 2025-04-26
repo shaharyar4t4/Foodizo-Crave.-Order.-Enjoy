@@ -191,8 +191,7 @@ class _ViewProfileState extends State<ViewProfile> {
                       'phone': phoneController.text.trim(),
                       'address': addressController.text.trim(),
                     });
-                    Get.toNamed('/displayprofile');
-                    Get.snackbar("Success", "Profile Saved");
+                    Get.offAllNamed('/NavBar');
                   }
                 },
                 style: ElevatedButton.styleFrom(

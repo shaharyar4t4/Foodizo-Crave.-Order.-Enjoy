@@ -102,8 +102,8 @@ class LoginForm extends StatelessWidget {
                 String? result = await authServices.login(
                     emailController.text, passwordController.text);
                 if (result == "success") {
-                  Get.offAllNamed("/NavBar");
-                  Get.snackbar("success", "Your are login now..",
+                  Get.offAllNamed("/profile");
+                  Get.snackbar("Success", "Now you create your profile",
                       backgroundColor: sttext,
                       colorText: Colors.white,
                       snackPosition: SnackPosition

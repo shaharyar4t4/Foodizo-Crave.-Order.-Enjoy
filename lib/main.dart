@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
       getPages: allPage,
-      home: ViewProfile(),
+      home: ViewSplash(),
     );
   }
 }

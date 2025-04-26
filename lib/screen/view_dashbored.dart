@@ -1,5 +1,10 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shopstore/components/category_Item.dart';
 import 'package:shopstore/components/product_item.dart';
 import 'package:shopstore/components/proper_items_product.dart';
@@ -14,7 +19,16 @@ class ViewDashbored extends StatefulWidget {
 }
 
 class _ViewDashboredState extends State<ViewDashbored> {
+  final user = FirebaseAuth.instance.currentUser;
   int selectedIndex = -1;
+  Future<File?> _loadImage() async {
+    final appDir = await getApplicationDocumentsDirectory();
+    final imagePath = File('${appDir.path}/selected_image.jpg');
+    if (await imagePath.exists()) {
+      return imagePath;
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,16 +54,56 @@ class _ViewDashboredState extends State<ViewDashbored> {
                     Row(
                       children: [
                         Icon(CupertinoIcons.location_solid, color: sttext),
-                        Text(
-                          'Freedom way, Lekki phase',
-                          style: TextStyle(fontSize: 15, color: Colors.grey),
+                        FutureBuilder<DocumentSnapshot>(
+                          future: FirebaseFirestore.instance
+                              .collection('profiles')
+                              .doc(user!.uid)
+                              .get(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            if (!snapshot.hasData || !snapshot.data!.exists) {
+                              return Center(child: Text("No Profile Found"));
+                            }
+                            var data =
+                                snapshot.data!.data() as Map<String, dynamic>;
+                            return Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Text("${data['address']}",
+                                  style: TextStyle(fontSize: 18)),
+                            );
+                          },
                         ),
                       ],
                     ),
-                    CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/product.png'),
-                      // Replace with your asset path
-                      radius: 20,
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed('/displayprofile');
+                      },
+                      child: FutureBuilder<File?>(
+                        future: _loadImage(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return CircularProgressIndicator();
+                          } else if (snapshot.hasData &&
+                              snapshot.data != null) {
+                            return CircleAvatar(
+                              radius: 20,
+                              backgroundImage: FileImage(snapshot.data!),
+                              backgroundColor: Colors.grey[200],
+                            );
+                          } else {
+                            return CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.grey[200],
+                              child: Icon(Icons.error, color: Colors.black),
+                            );
+                          }
+                        },
+                      ),
                     ),
                   ],
                 ),
