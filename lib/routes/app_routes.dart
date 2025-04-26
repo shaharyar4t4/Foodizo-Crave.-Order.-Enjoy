@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:shopstore/components/nav_bar.dart';
+import 'package:shopstore/screen/veiw_display_profile.dart';
 import 'package:shopstore/screen/veiw_search.dart';
 import 'package:shopstore/screen/veiw_thanks.dart';
 import 'package:shopstore/screen/view_onbored.dart';
@@ -66,6 +67,11 @@ var allPage = [
   GetPage(
     name: '/profile',
     page: () => ViewProfile(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: '/displayprofile',
+    page: () => ProfileShow(),
     transition: Transition.cupertino,
   ),
 ];

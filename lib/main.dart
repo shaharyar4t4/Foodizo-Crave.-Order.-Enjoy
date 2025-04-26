@@ -9,6 +9,7 @@ import 'package:shopstore/routes/app_routes.dart';
 import 'package:shopstore/screen/view_dashbored.dart';
 import 'package:shopstore/screen/view_product.dart';
 import 'package:shopstore/screen/view_product_two.dart';
+import 'package:shopstore/screen/view_profile.dart';
 import 'package:shopstore/screen/view_splash.dart';
 
 void main() async {
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
       getPages: allPage,
-      home: NavBar(),
+      home: ViewProfile(),
     );
   }
 }
