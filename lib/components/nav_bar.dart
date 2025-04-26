@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shopstore/screen/view_order.dart';
 import 'package:shopstore/util/cont_color.dart';
 
+import '../screen/veiw_display_profile.dart';
 import '../screen/view_dashbored.dart';
 
 class NavBar extends StatefulWidget {
@@ -15,9 +16,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   // List of widgets to display for each tab
   static final List<Widget> _pages = <Widget>[
     ViewDashbored(),
-    Center(child: Text('Profile Page', style: TextStyle(fontSize: 24))),
-    OrderDetailsPage(),
     Center(child: Text('Chat Page', style: TextStyle(fontSize: 24))),
+    OrderDetailsPage(),
+    ProfileShow(),
   ];
 
   late AnimationController _animationController;
@@ -97,9 +98,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
           elevation: 0,
           items: [
             _buildNavItem(Icons.home, 'Home'),
-            _buildNavItem(Icons.person, 'Profile'),
-            _buildNavItem(Icons.shopping_cart, 'Cart'),
             _buildNavItem(Icons.chat_bubble, 'Chat'),
+            _buildNavItem(Icons.shopping_cart, 'Cart'),
+            _buildNavItem(Icons.person, 'Profile'),
           ],
           selectedIconTheme: IconThemeData(color: sttext, size: 28),
           unselectedIconTheme: IconThemeData(color: Colors.grey, size: 24),

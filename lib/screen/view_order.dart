@@ -33,9 +33,9 @@ class OrderDetailsPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: IconButton(
-                      icon: Icon(Icons.arrow_back, color: sttext),
+                      icon: Icon(Icons.home, color: sttext),
                       onPressed: () {
-                        Get.back();
+                        Get.toNamed('/NavBar');
                       },
                     ),
                   ),
