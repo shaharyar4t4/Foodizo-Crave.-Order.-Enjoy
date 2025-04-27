@@ -10,9 +10,8 @@ With **Foodizo**, your favorite meals are just a tap away. Connect with top rest
 - Browse restaurants and food categories
 - Search and filter meals easily
 - Real-time order status updates
-- Fast and reliable delivery tracking
+- Chatbot for Food Suggestion
 - User-friendly and clean design
-- Secure payment options
 
 ---
 
