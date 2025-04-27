@@ -1,7 +1,7 @@
 # Foodizo – Crave. Order. Enjoy.
 
 Fast and reliable food delivery app!  
-With Foodizo, your favorite meals are just a tap away. Connect with top restaurants, order spicy snacks, hearty meals, and sweet treats — delivered fresh and fast.
+With **Foodizo**, your favorite meals are just a tap away. Connect with top restaurants, order spicy snacks, hearty meals, and sweet treats — delivered fresh and fast to your doorstep.
 
 ---
 
@@ -9,15 +9,16 @@ With Foodizo, your favorite meals are just a tap away. Connect with top restaura
 
 - Browse restaurants and food categories
 - Search and filter meals easily
-- Fast and reliable delivery tracking
-- Secure payment options
-- User-friendly and clean design
 - Real-time order status updates
+- Fast and reliable delivery tracking
+- User-friendly and clean design
+- Secure payment options
 
 ---
 
 ## 📂 Project Structure
 
+```
 Foodizo-Crave.-Order.-Enjoy/
 │
 ├── assets/           # Images, icons, and media files
@@ -31,47 +32,51 @@ Foodizo-Crave.-Order.-Enjoy/
 ├── pubspec.yaml      # Flutter dependencies and assets
 ├── README.md         # Project documentation
 └── .gitignore        # Ignored files/folders
+```
 
-🛠️ Installation Guide
+---
+
+## 🛠️ Installation Guide
+
 Follow these steps to set up and run the project locally:
 
-Clone the repository
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/shaharyar4t4/Foodizo-Crave.-Order.-Enjoy.git
+   ```
 
-bash
-Copy
-Edit
-git clone https://github.com/shaharyar4t4/Foodizo-Crave.-Order.-Enjoy.git
-Navigate to the project directory
+2. **Navigate to the project directory**
+   ```bash
+   cd Foodizo-Crave.-Order.-Enjoy
+   ```
 
-bash
-Copy
-Edit
-cd Foodizo-Crave.-Order.-Enjoy
-Get Flutter dependencies
+3. **Get Flutter dependencies**
+   ```bash
+   flutter pub get
+   ```
 
-bash
-Copy
-Edit
-flutter pub get
-Run the application
+4. **Run the application**
+   ```bash
+   flutter run
+   ```
 
-bash
-Copy
-Edit
-flutter run
-Note: Make sure you have Flutter installed. If not, check the Flutter installation guide.
+> **Note:** Make sure you have Flutter installed. If not, check the [Flutter installation guide](https://flutter.dev/docs/get-started/install).
 
-📧 Contact
-Have any questions, feedback, or collaboration ideas?
+---
+
+## 📧 Contact
+
+Have any questions, feedback, or collaboration ideas?  
 Feel free to reach out:
 
-Email: shaharyarali209@gmail.com
+- **Email:** [shaharyarali209@gmail.com](mailto:shaharyarali209@gmail.com)
 
-📄 License
-This project is licensed under the MIT License.
+---
 
-Foodizo — Taste the speed, feel the flavor! 🚀🍕🍔
+## 📄 License
 
-✅ Ready to copy and paste!
-✅ 100% professional GitHub standards!
+This project is licensed under the [MIT License](LICENSE).
 
+---
+
+> **Foodizo** — Taste the speed, feel the flavor! 🚀🍕🍔
