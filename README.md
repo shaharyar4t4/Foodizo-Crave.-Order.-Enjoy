@@ -1,4 +1,4 @@
-# Foodizo – Crave. Order. Enjoy.
+# Foodizo – Your Hunger, Delivered Fast!.
 
 Fast and reliable food delivery app!  
 With **Foodizo**, your favorite meals are just a tap away. Connect with top restaurants, order spicy snacks, hearty meals, and sweet treats — delivered fresh and fast to your doorstep.
